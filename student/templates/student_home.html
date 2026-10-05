@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+ <style>
+
+     *{
+
+        margin: 0;
+        padding:0;
+        box-sizing: border-box;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+     }
+
+     body{
+        background-color: #f5f5f5;
+     }
+     .header{
+
+        background: #2c3e50;
+        color:white;
+        padding:20px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+     }
+     .header h2{
+        font-size: 22px;
+     }
+     .stu-name{
+        font-size: 16px;
+     }
+     .container{
+        display: flex;
+        min-height: calc(100vh-64px);
+     }
+     .sidebar{
+       width: 210px;
+       background-color: rgb(208, 173, 173);
+       border-right: 1px solid #ddd;
+       padding-top: 20px;
+       height: 550px;
+       font-size: large;
+       font-weight: bold;
+
+     }
+
+     .sidebar a{
+        display: block;
+        padding:13px 20px ;
+        text-decoration: none;
+        color:#200202
+     }
+     .sidebar a:hover{
+        background-color: #eee;
+     }
+     .main{
+        flex: 1;
+        padding: 30px;
+     }
+     .main h1{
+
+        color:#333;
+        margin-bottom: 8px;
+     }
+     .main  p{
+
+        color:#666;
+        margin-bottom: 25px;
+
+     }
+     .cards{
+        display: flex;
+        gap:20px;
+        flex-wrap: wrap;
+     }
+
+     .card{
+        background-color: white;
+        width: 300px;
+        padding:30px;
+        border:1px solid #e8e8e8;
+        border-radius: 14px;
+        padding: 28px;
+        box-shadow: 0 8px 25px rgba(0, 0,0,0.06);
+        transition: 0.3s;
+
+     }
+     .card:hover{
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 0,0,0.10);
+     }
+       .card h3{
+
+        color:#333;
+        margin-bottom: 10px;
+
+       }
+
+       .card p{
+
+        font-size: 14px;
+        margin-bottom: 15px;
+       }
+       .btn{
+        display: inline-block;
+        background-color: #172554;
+        color:white;
+        padding:11px 22px;
+        border-radius: 7px;
+        border: none;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 14px;
+
+       }
+       .btn:hover{
+        background: #c9a227;
+       }
+
+    </style>
+
+
+
+</head>
+<body>
+    <!--header-->
+    <div class="header">
+        <h2>Student Portal</h2>
+        <div class="stu-name">{{stu.username}}</div>
+
+    </div>
+
+    <!--container-->
+
+    <div class="container">
+
+        <!---side bar-->
+        <div class="sidebar">
+            <a href="{% url 'show_profile' %}">My Profile</a>
+            <a href="">Fee details</a>
+            <a href="">Change Password</a>
+            <a href="">Logout</a>
+        </div>
+
+        <!---main content-->
+        <div class="main">
+            <h1 style="display: inline-block;">Welcome</h1>
+             <b style="color:red;font-size: 32px;" >{{stu.name}}</b>
+            <p>Manage your Student and academic Infromation</p>
+
+            <div class="cards">
+
+                <div class="card">
+                <h3>My Profile</h3>
+                <p>View your personal information</p>
+                <a href="{% url 'show_profile' %}" class="btn">View Profile</a>
+                
+                </div>
+                <div class="card">
+                <h3>Fee details</h3>
+                <p>View your fee details</p>
+                <a href="" class="btn">View Fees</a>
+                
+                </div>
+            <div class="card">
+                <h3>Change Password</h3>
+                <p>Change your password</p>
+                <a href="" class="btn">Change Password</a>
+                
+                </div>
+
+
+
+
+            </div>
+
+            </div>
+
+
+
+
+    </div>
+
+
+
+
+    
+</body>
+</html>

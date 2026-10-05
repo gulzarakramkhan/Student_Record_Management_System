@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        .table-container {
+            max-width: 1200px;
+            background: #fff;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            text-transform: uppercase;
+        }
+
+        th,
+        td {
+            padding: 12px 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f1f9ff;
+        }
+        .action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.action .edit-btn,
+.action .del-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.action .edit-btn {
+    background-color: green;
+    color: white ;
+}
+
+.action .del-btn {
+    background-color: red ;
+    color: white ;
+}
+
+.action .edit-btn i,
+.action .del-btn i {
+    color: white ;
+}
+
+.action .edit-btn:hover,
+.action .del-btn:hover {
+    opacity: 0.8;
+}
+.back-btn {
+    position: fixed;
+    right: 10px;
+    bottom: 100px;
+    display: flex;
+    width: fit-content;
+    margin: 30px auto;
+    padding: 12px 25px;
+    background: #2196f3;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0,0, 0.25);
+    z-index: 9999;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+    background: #1976d2;
+}
+    </style>
+</head>
+
+<body>
+    <div class="table-container">
+        <h2>View Student</h2>
+        <table>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>College</th>
+                <th>City</th>
+                <th>Join date</th>
+                <th>Total Fee</th>
+                <th>Paid Fee</th>
+                <th>Left Fee</th>
+                <th>Phone</th>
+                <th>Technology</th>
+                <th>image</th>
+                <th>Action</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.college }}</td>
+                <td>{{ i.city_name }}</td>
+                <td>{{ i.Joining_Date }}</td>
+                <td>{{ i.Total_fee }}</td>
+                <td>{{ i.Paid_fee }}</td>
+                <td>{{ i.left_fee }}</td>
+                <td>{{ i.phone }}</td>
+                <td>{{ i.Technology }}</td>
+                <td>
+                    {% if i.image %}
+                    <img src="{{i.image.url}}" width="60" height="60">
+                    {% else %}
+                    No Image
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="action">
+                        <a href="{% url 'edit_student' i.id %}" class="edit-btn">
+                            <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                        </a>
+                        <a href="{% url 'delete_student' i.id %}" class="del-btn">
+                            <i class="fa-solid fa-trash fa-lg"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+    <a href="{% url 'adminhome' %}" class="back-btn">Back to Dashboard</a>
+</body>
+
+</html>

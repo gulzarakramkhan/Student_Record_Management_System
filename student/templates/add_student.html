@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+  <style>
+     *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+     }
+     body{
+      background: linear-gradient(135deg,#e0eafc,#cfdef3);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    align-items: center;
+    padding: 30px;
+
+     }
+     .form-container{
+        width: 100%;
+        max-width: 500px;
+        padding: 30px;
+        background-color: rgba(255,255,255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0, 0, 0.15);
+     }
+     h2{
+        text-align: center;
+        margin-bottom: 25px;
+        color: #2c3e50;
+     }
+     .form-group{
+        margin-bottom: 18px;
+     }
+     label{
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+     }
+     input,select{
+
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        outline: none;
+        transition: 0.3s;
+     }
+     input:focus,select:focus{
+        border-color: #3498db;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+     }
+
+     .btn{
+
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg,#3498db,#2471a3);
+        border: none;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: 0.3s;
+
+     }
+     .btn:hover{
+        background:linear-gradient(135deg,#2980b9,#2471a3)
+     }
+
+     .div{
+    background: linear-gradient(135deg,#2c3e50,#34495e);
+    color: #fff;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: block;
+
+   }
+   
+h1{
+
+     width:100%;
+    text-align:center;
+    color:#fff;
+    background:linear-gradient(135deg,#2563eb,#1e3a8a);
+    padding:20px;
+    margin-bottom:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+.back{
+    font-weight: bold;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    color: white;
+    background: #2563eb;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0,0, 0, 0.25);
+}
+  </style>
+
+</head>
+<body>
+<h1>Student Records Dashboard</h1>
+   
+    <div  class="form-container">
+
+      
+        <h2>Add Student</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+           
+            <div class="form-group">
+                <label>Student Name</label>
+                <input type="text" name="sname" placeholder="Student Name" required>
+            </div>
+      
+             <div class="form-group">
+                <label>Student Email</label>
+                <input type="email" name="email" placeholder="Student email" required>
+            </div>
+
+             <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="uname" placeholder="Student username" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Student email" required>
+            </div>
+
+
+
+             <div class="form-group">
+                <label>College Name</label>
+                <input type="text" name="college" placeholder="College name" required>
+            </div>
+
+            <div class="form-group">
+                <label>City Name</label>
+                <input type="text" name="city" placeholder="City name" required>
+            </div>
+
+            
+
+           <div class="form-group">
+                <label>Joining Date</label>
+                <input type="date" name="jdate"  required>
+            </div>
+
+           <div class="form-group">
+                <label>Total fee</label>
+                <input type="number" name="tfee"  required placeholder="total fee" id="tf">
+            </div>
+
+            <div class="form-group">
+                <label>Paid fee</label>
+                <input type="number" name="pfee"  required placeholder="Paid fee" id="pf" oninput="fee()" >
+            </div>
+
+            <div class="form-group">
+                <label>Left fee</label>
+                <input type="number" name="lfee"  required placeholder="Left fee" id="lf">
+            </div>
+
+            <div class="form-group">
+                <label>Phone number</label>
+                <input type="tel" name="phone"  required placeholder="phone number">
+            </div>
+
+            <div class="form-group">
+                <label> Select Technology</label>
+                <select name="technology">
+                    <option value="Python">Python</option>
+                    <option value="Php">Php</option>
+                    <option value="Mern">Mern</option>
+                    <option value="Java">Java</option>
+                    <option value="asp.Net">Asp.net</option>
+
+                </select>
+            </div>
+           
+        <div class="form-group">
+                <label>Upload image</label>
+                <input type="file" name="img"  required >
+            </div>
+
+      <button type="submit" class="btn">Add Student</button>
+
+
+        </form>
+
+        <a href="{% url 'adminhome' %}"  class="back">Back to Dashboard</a>
+
+
+
+
+
+        
+    </div>
+<script>
+    function fee(){
+    let total_fee=document.getElementById('tf').value
+    let paid_fee=document.getElementById('pf').value
+    
+        document.getElementById('lf').value=total_fee-paid_fee
+    }
+</script>
+     
+</body>
+</html>

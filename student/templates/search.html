@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .search-container h2 {
+            margin-bottom: 20px;
+            color: #2c3e50
+        }
+
+        #searchBox {
+            padding: 12px 15px;
+            border-radius: 8px;
+            outline: none;
+            border: 1px solid #3498db;
+            font-size: 16px;
+        }
+
+        th,
+        td {
+            padding: 12px 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f1f9ff;
+        }
+
+        img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0.2);
+        }
+
+        .edit-btn,
+        .del-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 3px;
+            color: white;
+        }
+
+        .edit-btn {
+            background: #28a745;
+        }
+
+        .del-btn {
+            background: #dc3545;
+        }
+
+        .edit-btn:hover,
+        .del-btn:hover {
+            transform: scale(1.08);
+        }
+
+        .back-arrow {
+            position: fixed;
+            left: 25px;
+            bottom: 25px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #2196f3;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+        }
+
+        .back-arrow:hover {
+            background: #1976d2;
+            transform: scale(1.1);
+        }
+        .search-form button {
+    padding: 12px 24px;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 8px;
+}
+
+.search-form button:hover {
+    background: #1976d2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Search Records</h1>
+    </div>
+    <div class="search-container">
+        <h2>Find Student Records</h2>
+        <form method="get" action="{% url 'search_stu' %}" class="search-form">
+            <input type="text" id="searchBox" placeholder="Enter  Student Name" name="name">
+            <button type="submit">Search</button>
+        </form>
+
+    </div>
+    <table id="table">
+        <tr>
+
+            <th>Name</th>
+            <th>Email</th>
+            <th>College</th>
+            <th>City</th>
+            <th>Join date</th>
+            <th>Total Fee</th>
+            <th>Paid Fee</th>
+            <th>Left Fee</th>
+            <th>Phone</th>
+            <th>Technology</th>
+            <th>image</th>
+            <th>Action</th>
+        </tr>
+
+        {% for i in data %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.college}}</td>
+            <td>{{i.city_name}}</td>
+            <td>{{i.Joining_Date}}</td>
+            <td>{{i.Total_fee}}</td>
+            <td>{{i.Paid_fee}}</td>
+            <td>{{i.left_fee}}</td>
+
+            <td>{{i.phone}}</td>
+            <td>{{i.Technology}}</td>
+            <td>
+                {% if i.image %}
+                <img src="{{ i.image.url }}" width="60" height="60" alt="Student Image">
+                {% else %}
+                <span>No Image</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'edit_student' i.id %}" class="edit-btn">
+                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                </a>
+
+                <a href="{% url 'delete_student' i.id %}" class="del-btn"
+                    onclick="return confirm('Are you sure you want to delete this student?');">
+                    <i class="fa-solid fa-trash fa-lg"></i>
+                </a>
+            </td>
+
+        </tr>
+
+
+        {% endfor %}
+        <a href="{% url 'adminhome' %}" class="back-arrow" title="Back to Dashboard">
+            ←
+        </a>
+
+
+
+
+    </table>
+
+    <script>
+        document.getElementById('searchBox').onkeyup = function () {
+
+            let sr = this.value.toLowerCase()
+            document.querySelectorAll("#table tr").forEach(function (row) {
+
+                if (row.innerText.toLowerCase().includes(sr)) {
+                    row.style.display = "";
+                } else {
+
+                    row.style.display = "none";
+                }
+
+            });
+
+
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

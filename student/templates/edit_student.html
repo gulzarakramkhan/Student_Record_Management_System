@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Edit Student</title>
+
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial;
+        }
+
+        .form-box {
+            width: 500px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-update {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-update:hover {
+            background-color: #2980b9;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="form-box">
+
+        <h2>Edit Student</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" class="input" value="{{obj.name}}">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="input" value="{{obj.email}}">
+            </div>
+
+            <div class="form-group">
+                <label>College</label>
+                <input type="text" name="college" class="input" value="{{obj.college}}">
+            </div>
+
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" name="city" class="input" value="{{obj.city_name}}">
+            </div>
+
+            <div class="form-group">
+                <label>Join Date</label>
+                <input type="date" name="jdate" class="input" value="{{obj.Joining_Date|date:'Y-m-d'}}">
+            </div>
+
+            <div class="form-group">
+                <label>Total Fee</label>
+                <input type="number" name="tfee" class="input" value="{{obj.Total_fee}}">
+            </div>
+
+            <div class="form-group">
+                <label>Paid Fee</label>
+                <input type="number" name="pfee" class="input" value="{{obj.Paid_fee}}">
+            </div>
+
+            <div class="form-group">
+                <label>Left Fee</label>
+                <input type="text" name="lfee" class="input" value="{{obj.left_fee}}">
+            </div>
+
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="phone" class="input" value="{{obj.phone}}">
+            </div>
+
+            <div class="form-group">
+                <label>Select Technology</label>
+
+                <select name="technology">
+                    <option value="Python" {% if obj.Technology == "Python" %}selected{% endif %}>
+                        Python
+                    </option>
+
+                    <option value="PHP" {% if obj.Technology == "PHP" %}selected{% endif %}>
+                        PHP
+                    </option>
+
+                    <option value="Mern" {% if obj.Technology == "Mern" %}selected{% endif %}>
+                        MERN
+                    </option>
+
+                    <option value="Java" {% if obj.Technology == "Java" %}selected{% endif %}>
+                        Java
+                    </option>
+
+                    <option value="asp.Net" {% if obj.Technology == "asp.Net" %}selected{% endif %}>
+                        ASP.NET
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Student Image</label>
+
+                {% if obj.image %}
+                <img src="{{ obj.image.url }}" width="100" height="100"
+                    style="object-fit: cover; display:block; margin-bottom:10px;">
+                {% endif %}
+
+                <input type="file" name="image">
+            </div>
+            <input type="submit" value="Update Student" class="btn-update">
+
+    </div>
+    </form>
+
+    </div>
+
+</body>
+
+</html>

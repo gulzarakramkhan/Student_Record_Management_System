@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Page</title>
+<style>
+     .home-section{
+
+        width: 90%;
+        margin: 80px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .left{
+
+        width: 50%;
+    }
+    .right{
+      width: 45%;
+      text-align: right;
+
+    }
+
+    .right img{
+
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .left h1{
+        font-size: 48px;
+        color: #1f2937;
+        margin-bottom: 20px;
+    }
+
+    .left p{
+
+        font-size: 18px;
+        color: #555;
+        line-height: 1.5;
+        margin-bottom: 40px;
+    }
+    .btn{
+
+        display: inline-block;
+        text-decoration: none;
+        background-color: #2563eb;
+        color:white;
+        padding: 14px 28px;
+        margin-right: 30px;
+        transition: 0.3s;
+        border-radius: 10px;
+    }
+
+    .btn:hover{
+
+        background-color: #1d4ed8;
+    }
+
+    .features{
+
+        display: inline-block;
+        width: 99.8%;
+
+        margin: 100px auto;
+        text-align: center;
+    }
+
+    .features-card{
+        display: inline-block;
+        width: 280px;
+        height: 200px;
+        border-radius: 10px;
+        padding: 25px;
+        margin: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        background-color: white;
+
+    }
+    .features-card h3{
+        font-size: 22px;
+        color:#1f2937;
+        margin-bottom: 10px;
+    }
+
+    .features-card p{
+
+        color:#666
+    }
+ .stats{
+  width: 90%;
+  margin: 80px auto;
+  text-align: center;
+
+ }
+
+ .box{
+  display: inline-block;
+  width: 220px;
+  background-color: white;
+  padding: 30px;
+  margin: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+
+ }
+
+ .box h1{
+    font-size: 18px;
+    color: #2563eb;
+ }
+ .box p{
+    color:#666;
+ }
+        </style>
+</head>
+<body>
+     {% include 'navbar.htm' %}
+
+    <div class="home-section">
+
+      <div class="left">
+        <h1>Student  Records Management  System</h1>
+        <p>A Student Record Management System (SRMS) is a digital platform that schools and universities use to securely store, organize, and manage student data in one central database.</p>
+        <a href="" class="btn">Add student</a>
+        <a href="" class="btn">View Student</a>
+
+      </div>
+
+        <div class="right">
+            <!-- Right content goes here -->
+             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4_L1CdmCEmlFijZ4j05lK9rHEZL59-eu9xARlWgYAg&s=10" alt="Student Record Management System Image">
+        </div>
+    </div>
+     <div class="features">
+        <h2>Our Features</h2>
+        
+        <div class="features-card">
+            <h3>View Students</h3>
+            <p>Browse and Search all Student easily</p>
+        </div>
+
+
+          <div class="features-card">
+            <h3>Add Students</h3>
+            <p>Create new Student records just in few clicks</p>
+        </div>
+
+          <div class="features-card">
+            <h3>Update Students</h3>
+            <p>Edit Student Information whenever required</p>
+        </div>
+
+
+         <div class="features-card">
+            <h3>Delete Records</h3>
+            <p>Remove Unwanted Student records</p>
+        </div>
+
+
+
+
+    </div>
+    <div class="stats">
+        <div class="box">
+            <h1>1000+</h1>
+            <p>Students Managed</p>
+        </div>
+        <div class="box">
+            <h1>500+</h1>
+            <p>Active Users</p>
+        </div>
+        <div class="box">
+            <h1>99.9%</h1>
+            <p>Uptime</p>
+        </div>
+        <div class="box">
+            <h1>24/7</h1>
+            <p>Support</p>
+        </div>
+        <div class="box">
+            <h1>50+</h1>
+            <p>Features</p>
+        </div>
+        <div class="box">
+            <h1>10+</h1>
+            <p>Integrations</p>
+        </div>
+        <div class="box">
+            <h1>5+</h1>
+            <p>Languages Supported</p>
+        </div>
+        <div class="box">
+            <h1>100%</h1>
+            <p>Satisfaction Rate</p>
+        </div>
+        <div class="box">
+            <h1>200+</h1>
+            <p>Reports Generated</p>
+        </div>
+    </div>
+</body>
+</html>

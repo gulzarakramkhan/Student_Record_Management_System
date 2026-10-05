@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<style>
+  *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#101b3d;
+   background-color:#f8faff;
+   overflow-x: hidden;
+  }
+  .navbar{
+    width: 100%;
+    height: 90px;
+    background:linear-gradient(135deg,#06143d,#0b1d58);
+    border-bottom: 1px solid rgba(255, 255,255, 0.12);
+    position: sticky;
+    top:0;
+    z-index: 9999;
+  }
+
+  .nav-container{
+
+     max-width: 1400px;
+     height: 100%;
+     margin: auto;
+     padding:0 45px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+
+  }
+
+.brand{
+    display: flex;
+    align-items: center;
+    gap:12px;
+    color:white
+}
+.brand-icon{
+
+    width: 48px;
+    height: 48px;
+    background:linear-gradient(135deg,#2563eb,#6138ff);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+}
+
+a{
+
+    text-decoration: none;
+}
+
+ .brand-text{
+
+    display: flex;
+    flex-direction: column;
+ }
+
+
+.brand-text  strong{
+
+
+    font-size: 20px;
+    line-height: 1.1;
+}
+
+.brand-text small{
+
+    font-size: 13px;
+    margin-top: 4px;
+    color:#9eabd0;
+
+}
+
+.nav-links{
+
+    display: flex;
+    align-items: center;
+    gap:38px;
+     margin-left: 80px;
+}
+
+.nav-links a{
+    position: relative;
+    color:#d9e2ff;
+    font-size: 15px;
+    font-weight: 600;
+    padding:10px 0;
+
+}
+
+.nav-links a:hover{
+    color:white
+}
+
+.nav-button{
+
+    display: flex;
+    align-items: center;
+}
+
+.login-btnn{
+
+    padding: 13px 20px;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(72, 70, 255, 0.25);
+}
+.login-btnn:hover{
+    background-color: darkblue;
+}
+</style>
+
+</head>
+<body>
+  <header class="navbar">
+
+     <div class="nav-container">
+
+        <!--Brand-->
+     <a href="" class="brand">
+        <div class="brand-icon">
+            &nbsp;<i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <div class="brand-text">
+            <strong>
+                Student Records 
+            </strong>
+            <small>
+            Management System
+            </small>
+        </div>
+     </a>
+
+
+
+     <nav class="nav-links">
+
+        <a href="{% url 'home' %}">Home</a>
+        <a href="">Features</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="">Contact</a>
+
+
+     </nav>
+
+     <div class="nav-button">
+        <a href="{% url 'login' %}" class="login-btnn">login</a>
+
+
+        </div>
+
+
+
+
+
+     </div>
+
+  </header>
+    
+</body>
+</html>

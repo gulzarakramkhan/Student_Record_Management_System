@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Page/SRMS</title>
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f4f7fb;
+}
+
+
+/* Main Container */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* Left Section */
+
+.login-left {
+    width: 50%;
+    background: url(https://static.vecteezy.com/system/resources/previews/027/205/841/non_2x/login-and-password-concept-3d-illustration-computer-and-account-login-and-password-form-page-on-screen-3d-illustration-png.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    padding: 40px 8%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* Logo */
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo i {
+    color: #a5b4fc;
+    margin-right: 10px;
+}
+
+
+/* Welcome Text */
+
+.welcome {
+    max-width: 500px;
+    margin-bottom: 100px;
+}
+
+.welcome h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.welcome p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #d1d5db;
+}
+
+
+/* Right Section */
+
+.login-right {
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+}
+
+
+
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+
+    text-align: center;
+
+    animation: fadeUp 0.8s ease;
+}
+
+
+/* Login Icon */
+
+.login-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+}
+
+
+.login-box h2 {
+    font-size: 32px;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+
+.subtitle {
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+
+/* Input */
+
+.input-box {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.input-box i {
+    position: absolute;
+
+    left: 17px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #6b7280;
+}
+
+
+.input-box input {
+    width: 100%;
+
+    padding: 15px 15px 15px 48px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+
+.input-box input:focus {
+    border-color: #4f46e5;
+
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+
+
+.options {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 8px 0 25px;
+
+    font-size: 14px;
+}
+
+
+.options label {
+    color: #6b7280;
+}
+
+
+.options a {
+    color: #4f46e5;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+/* Login Button */
+
+button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+button i {
+    margin-left: 8px;
+}
+
+
+button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
+
+
+
+/* Animation */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .login-container {
+        flex-direction: column;
+    }
+
+
+    .login-left {
+        width: 100%;
+        min-height: 300px;
+    }
+
+    .login-right {
+        width: 100%;
+    }
+
+   
+    .login-box {
+        padding: 30px 25px;
+    }
+
+}
+    </style>
+</head>
+<body>
+    {% include 'navbar.htm' %}
+
+      <div class="login-container">
+
+        <!-- Left Side -->
+        <div class="login-left">
+
+            <div class="logo">
+            </div>
+
+            
+        </div>
+
+
+        <!-- Right Side -->
+        <div class="login-right">
+
+            <div class="login-box">
+
+                <div class="login-icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h2>Login</h2>
+
+                <p class="subtitle">
+                    Enter your account details
+                </p>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    
+                    <div class="input-box">
+                        <i class="fa-solid fa-user"></i>
+
+                        <input type="text" placeholder="Username" required name="uname">
+                    </div>
+
+
+    
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input type="password"
+                               placeholder="Password" name="password"
+                               required>
+                    </div>
+
+
+                   
+
+                    <button type="submit">
+                        Login
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </form>
+
+               
+            </div>
+
+        </div>
+
+    </div>
+   {% if error == "no" %}
+    <script>
+        alert("Login Successfully")
+        window.location="{% url 'adminhome' %}"
+    </script>
+    {% endif %}
+
+
+    {% if error == "yes" %}
+    <script>
+        alert("Invalid username or password")
+    </script>
+    {% endif %}
+</body>
+</html>
